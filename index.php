@@ -13,6 +13,7 @@ if (!$conn) {
   die("sorry we couldn't connect to database" . mysqli_connect_error());
 }
 if (isset($_GET['delete'])) {
+  //delete file
   $sno = $_GET['delete'];
   $sql = "DELETE FROM NOTES WHERE sno = $sno";
   $result = mysqli_query($conn, $sql);
@@ -30,6 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
       $update = true;
     }
   } else {
+    //insert query
     $title = $_POST['title'];
     $descrpt = $_POST['description'];
     $SQL = "INSERT INTO `notes` (`title`, `description`) VALUES ('$title','$descrpt')";
@@ -159,6 +161,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
   <div id="cont3">
   <div class="container my-4">
     <?php
+     //fetch the record
     $sql = "select * from notes";
     $result = mysqli_query($conn, $sql);
     ?>
