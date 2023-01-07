@@ -13,7 +13,7 @@ if (!$conn) {
   die("sorry we couldn't connect to database" . mysqli_connect_error());
 }
 if (isset($_GET['delete'])) {
-  //delete file
+  //delete query
   $sno = $_GET['delete'];
   $sql = "DELETE FROM NOTES WHERE sno = $sno";
   $result = mysqli_query($conn, $sql);
